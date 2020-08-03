@@ -1,14 +1,22 @@
 const express = require("express");
-var PORT = process.env.PORT || 3001; 
+const exphbs = require("express-handlebars");
+const burgerController= require("./controllers/burgers_controller");
+const PORT = process.env.PORT || 3001; 
 const app = express();
 
-app.get('/', function (req, res) {
-  res.send('hello world')
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended:true}));
+app.use(express.json());
+app.use(burgerController);
+app.engine("handlebars", exphbs({defaultLayout: "main"}));
+app.set("view engine", "handlebars");
+
+app.listen(PORT, (err)=>{
+  if(err) throw err;
+  console.log(`Listening to Port: ${PORT}`);
 });
 
-app.listen(PORT, function() { 
-  console.log("App listening on PORT " + PORT); 
-});
+
 
 
 

@@ -9,11 +9,18 @@ const orm={
         });
     },
 
-    insertOne(){
-   
+    insertOne(tableName, values, cb){
+        connection.query("INSERT INTO ?? SET ?",[tableName, values],(err, results)=>{
+            if(err) throw err;
+            cb(results);
+        });
     },
-    updateOne(){
-
+    updateOne(tableName, newValues, targetId, cb){
+        //update tablename set newValue Where id=targetid
+        connection.query("UPDATE ?? SET ? WHERE id=?",[tableName, newValues, targetId],(err,results)=>{
+            if(err) throw err;
+            cb(results);
+        });
     }
 };
 

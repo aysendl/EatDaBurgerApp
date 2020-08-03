@@ -1,0 +1,37 @@
+
+body {
+    background-color: orange !important;
+    color: black             !important;
+}
+h1 {
+    text-align: center;
+    padding-top: 0.35em;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    height: 25%;
+    padding: 1em;
+}
+
+li {
+    padding: 10px;
+    margin: 10px;
+    background: #faebd7;
+  }
+  
+  .devour {
+    margin-bottom: 0.5em;
+}
+  
+  #create-burger-form {
+    padding: 5px;
+    margin: 5px;
+    background: aqua;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
